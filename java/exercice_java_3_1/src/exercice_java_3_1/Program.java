@@ -7,6 +7,8 @@ public class Program {
 		Produit c2 = new Produit("camember", 3.5, 0.50);
 		c2.affichage();
 		c2.getPrice(16);
+		
+		
 	}
 
 }
