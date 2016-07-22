@@ -37,7 +37,7 @@ public class TicketDeveloppement extends Ticket {
 	@Override
 	public String toString() {
 		return "TicketDeveloppement [nomLogiciel=" + nomLogiciel + ", version=" + version + ", getIdentifiant()="
-				+ getIdentifiant() + ", getDateTicket()=" + getDateTicket() + ", getDescription()=" + getDescription()
+				+ getIdentifiant() + ", getDateTicket()=" + format.format(getDateTicket()) + ", getDescription()=" + getDescription()
 				+ ", getUrgence()=" + getUrgence() + "]";
 	}
 	

@@ -1,12 +1,15 @@
 package exercice_java_4_1;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public abstract class Ticket {	
+public abstract class Ticket implements Comparable<Ticket>{	
+	
 	private int identifiant;
 	private Date dateTicket;
 	private String description;
 	private int urgence;
+	SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd");
 	
 	public int getIdentifiant() {
 		return identifiant;
@@ -71,7 +74,7 @@ public abstract class Ticket {
 
 	@Override
 	public String toString() {
-		return "Ticket [identifiant=" + identifiant + ", dateTicket=" + dateTicket + ", description=" + description
+		return "Ticket [identifiant=" + identifiant + ", dateTicket=" + format.format(dateTicket) + ", description=" + description
 				+ ", urgence=" + urgence + "]";
 	}
 	
@@ -79,6 +82,17 @@ public abstract class Ticket {
 	public String save(){
 		return identifiant + ";" + dateTicket + ";" + description
 				+ ";" + urgence ;
+	}
+	
+	
+	@Override
+	public int compareTo(Ticket t) {
+		if(getUrgence() < t.getUrgence())
+			return -1;
+		else if (getUrgence() > t.getUrgence())
+			return 1;
+		
+		return getDateTicket().compareTo(t.getDateTicket());
 	}
 	
 }

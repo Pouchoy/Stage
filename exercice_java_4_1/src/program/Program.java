@@ -1,13 +1,20 @@
-package exercice_java_4_1;
+package program;
 
 
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Date;
 import java.util.Random;
 
+import exercice_java_4_1.Ticket;
+import exercice_java_4_1.TicketDeveloppement;
+import exercice_java_4_1.TicketPanne;
+
 public class Program {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws FileNotFoundException {
 
+		
 		Random rd = new Random();
 		
 		Ticket[] peoples = new Ticket[6];
@@ -21,6 +28,16 @@ public class Program {
 			System.out.println(p);
 
 		System.out.println(peoples[1].save());
+		
+		
+		//ecrire dans un fichier
+		PrintWriter pw = new PrintWriter("tickets.csv");
+		
+		for(Ticket t : peoples)
+		{
+			pw.println(t.save());
+		}
+		pw.close();
 	}
 
 }
